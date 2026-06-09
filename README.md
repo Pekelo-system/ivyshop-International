@@ -4,10 +4,6 @@ E-commerce moderno y completo desarrollado con **Next.js 16**, **AWS Amplify Gen
 
 ---
 
-## 📋 Descripción
-
-IvyShop International es una aplicación de comercio electrónico full-stack que permite a los usuarios navegar un catálogo de productos, filtrar por categorías, agregar items al carrito y completar el proceso de compra. Los administradores pueden gestionar productos y generar contenido (descripciones e imágenes) mediante IA Generativa.
-
 ### Características principales
 
 - 🛍️ Catálogo de productos con filtros por categoría y búsqueda
@@ -202,19 +198,6 @@ La aplicación estará disponible en `http://localhost:3000`.
 
 ---
 
-## 🛍️ Categorías de Productos
-
-El catálogo maneja 5 categorías:
-
-| Categoría | Productos de ejemplo |
-|-----------|---------------------|
-| 👟 Zapatos | Zapatillas Running, Botas de Cuero, Sandalias, Mocasines |
-| 👕 Ropa | Camisetas, Jeans, Chaquetas, Sudaderas, Vestidos |
-| 📱 Electrónicos | Auriculares, Smartwatch, Cargadores, Altavoces, Teclados |
-| 📚 Libros | El Arte de la Guerra, Código Limpio, Sapiens, Sistemas Distribuidos |
-| 🎒 Otros | Mochilas, Botellas térmicas, Yoga, Lámparas |
-
----
 
 ## 🤖 IA Generativa (Amazon Bedrock)
 
