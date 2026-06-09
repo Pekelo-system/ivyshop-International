@@ -32,13 +32,10 @@ describe("Propiedad 5: Validación de cantidad en detalle de producto", () => {
       fc.property(
         fc.integer({ min: 1, max: 1000 }), // stock
         (stock) => {
-          return fc.property(
-            fc.integer({ min: 1, max: stock }),
-            (quantity) => {
-              const isValid = quantity >= 1 && quantity <= stock;
-              expect(isValid).toBe(true);
-            }
-          );
+          // Generate a valid quantity within [1, stock]
+          const quantity = Math.max(1, Math.min(stock, Math.floor(Math.random() * stock) + 1));
+          const isValid = quantity >= 1 && quantity <= stock;
+          expect(isValid).toBe(true);
         }
       ),
       { numRuns: 100 }
