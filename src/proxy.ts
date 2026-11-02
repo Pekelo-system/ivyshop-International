@@ -3,12 +3,12 @@ import { fetchAuthSession } from "aws-amplify/auth/server";
 import { runWithAmplifyServerContext } from "@/lib/amplify/server";
 
 /**
- * Route protection middleware for ivyshop International.
+ * Route protection proxy for ivyshop International.
  *
  * - /admin/* → requires "Administradores" Cognito group → 403 + redirect to / if not authorized
  * - /checkout → requires authentication → redirect to /auth/login if not authenticated
  */
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Check if route requires protection
