@@ -1,5 +1,6 @@
-import "@testing-library/jest-dom";
+import "@testing-library/jest-dom/vitest";
 import { vi } from "vitest";
+
 // Mock Amplify server configuration (no real AWS calls in tests)
 vi.mock("@/lib/amplify/server", () => ({
   runWithAmplifyServerContext: vi.fn(({ operation }) =>

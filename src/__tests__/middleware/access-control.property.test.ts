@@ -10,9 +10,9 @@ describe("Propiedad 13: Control de acceso al panel de administración", () => {
       fc.property(
         fc.constantFrom("/admin", "/admin/productos", "/admin/productos/nuevo", "/admin/productos/abc-123"),
         fc.oneof(
-          fc.constant([] as string[]),           // no groups (unauthenticated)
-          fc.constant(["Clientes"]),              // wrong group
-          fc.constant(["Users", "Premium"]),      // irrelevant groups
+          fc.constant([] as string[]),               // no groups (unauthenticated)
+          fc.constant(["Clientes"] as string[]),      // wrong group
+          fc.constant(["Users", "Premium"] as string[]), // irrelevant groups
         ),
         (pathname, groups) => {
           const isAdmin = groups.includes("Administradores");

@@ -134,7 +134,7 @@ describe("Propiedad 9: Checkout es atómico respecto al stock", () => {
           vi.mocked(mockHelpers.deleteItem).mockReset();
 
           vi.mocked(mockHelpers.transactWrite).mockRejectedValue(
-            new TransactionCanceledException({ message: "Stock insufficient" })
+            new TransactionCanceledException({ message: "Stock insufficient", $metadata: {} })
           );
           // queryItems should never be called, but provide a default just in case
           vi.mocked(mockHelpers.queryItems).mockResolvedValue({ items: [], lastEvaluatedKey: undefined });
