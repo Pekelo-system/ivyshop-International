@@ -39,3 +39,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# amplify (build artifacts & local backend deps)
+.amplify/
+amplify/node_modules/
+
+# agent/tool artifacts
+.agents/
+
+# dependency backups
+.backup-deps-*/
