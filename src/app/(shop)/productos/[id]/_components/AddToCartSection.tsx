@@ -40,6 +40,7 @@ export function AddToCartSection({ product }: AddToCartSectionProps) {
       entityType: "CART_ITEM",
       userId: "local",
       productId: product.id,
+      productName: product.name,
       quantity,
       unitPrice: product.price,
       createdAt: now,
@@ -52,7 +53,7 @@ export function AddToCartSection({ product }: AddToCartSectionProps) {
   return (
     <div className="mt-6 space-y-4">
       <div className="flex items-center gap-4">
-        <label htmlFor="quantity" className="text-sm font-medium text-gray-700">
+        <label htmlFor="quantity" className="text-sm font-medium text-slate-300">
           Cantidad
         </label>
         <div className="flex items-center gap-2">
@@ -85,7 +86,7 @@ export function AddToCartSection({ product }: AddToCartSectionProps) {
             +
           </Button>
         </div>
-        <span className="text-sm text-gray-500">{product.stock} disponibles</span>
+        <span className="text-sm text-slate-400">{product.stock} disponibles</span>
       </div>
       {error && (
         <p className="text-sm text-red-600" role="alert">
@@ -94,7 +95,7 @@ export function AddToCartSection({ product }: AddToCartSectionProps) {
       )}
       <Button
         className="w-full sm:w-auto px-8"
-        style={{ backgroundColor: "#ea580c", color: "white" }}
+        style={{ backgroundColor: "#06b6d4", color: "white" }}
         onClick={handleAddToCart}
         disabled={!!error}
         aria-label={`Agregar ${quantity} unidad${quantity > 1 ? "es" : ""} al carrito`}

@@ -2,9 +2,14 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { type CartItem } from "@/types";
 
+// Extended cart item with product name for display
+export interface CartItemWithName extends CartItem {
+  productName?: string;
+}
+
 interface CartStore {
-  items: CartItem[];
-  addItem: (item: CartItem) => void;
+  items: CartItemWithName[];
+  addItem: (item: CartItemWithName) => void;
   updateQuantity: (productId: string, quantity: number) => void;
   removeItem: (productId: string) => void;
   clearCart: () => void;

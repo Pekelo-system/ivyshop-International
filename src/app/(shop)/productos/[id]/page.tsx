@@ -24,10 +24,10 @@ export default async function ProductoDetallePage({ params }: { params: Promise<
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      <nav className="mb-6 text-sm text-gray-500" aria-label="Ruta de navegación">
-        <Link href="/" className="hover:text-green-700">Catálogo</Link>
+      <nav className="mb-6 text-sm text-slate-400" aria-label="Ruta de navegación">
+        <Link href="/" className="hover:text-violet-400">Catálogo</Link>
         <span className="mx-2">/</span>
-        <span className="text-gray-900">{product.name}</span>
+        <span className="text-white">{product.name}</span>
       </nav>
 
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
@@ -45,19 +45,19 @@ export default async function ProductoDetallePage({ params }: { params: Promise<
 
         <div>
           <Badge variant="secondary" className="mb-3">{categoryLabels[product.category] ?? product.category}</Badge>
-          <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">{product.name}</h1>
-          <p className="mt-4 text-3xl font-bold text-green-700">${product.price.toFixed(2)}</p>
+          <h1 className="text-2xl font-bold text-white sm:text-3xl">{product.name}</h1>
+          <p className="mt-4 text-3xl font-bold text-violet-400">${product.price.toFixed(2)}</p>
 
           {isOutOfStock ? (
             <div className="mt-4"><Badge variant="destructive" className="text-base px-4 py-1">Agotado</Badge></div>
           ) : (
-            <p className="mt-2 text-sm text-gray-500">{product.stock} unidades en stock</p>
+            <p className="mt-2 text-sm text-slate-300">{product.stock} unidades en stock</p>
           )}
 
           {product.description && (
             <div className="mt-6">
-              <h2 className="text-sm font-semibold text-gray-900 uppercase tracking-wide">Descripción</h2>
-              <p className="mt-2 text-gray-600 leading-relaxed">{product.description}</p>
+              <h2 className="text-sm font-semibold text-slate-200 uppercase tracking-wide">Descripción</h2>
+              <p className="mt-2 text-slate-300 leading-relaxed">{product.description}</p>
             </div>
           )}
 

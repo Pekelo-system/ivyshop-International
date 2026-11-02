@@ -15,10 +15,10 @@ export default function CarritoPage() {
     return (
       <div className="mx-auto max-w-3xl px-4 py-16 text-center">
         <ShoppingCart className="mx-auto h-16 w-16 text-gray-300 mb-4" aria-hidden="true" />
-        <h1 className="text-2xl font-bold text-gray-900">Tu carrito está vacío</h1>
-        <p className="mt-2 text-gray-500">Agrega productos para comenzar tu compra</p>
+        <h1 className="text-2xl font-bold text-white">Tu carrito está vacío</h1>
+        <p className="mt-2 text-slate-300">Agrega productos para comenzar tu compra</p>
         <Link href="/">
-          <Button className="mt-6 bg-green-600 hover:bg-green-700 text-white">
+          <Button className="mt-6 bg-violet-600 hover:bg-violet-700 text-white">
             Explorar catálogo
           </Button>
         </Link>
@@ -29,7 +29,7 @@ export default function CarritoPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6 lg:px-8">
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">Carrito de compras</h1>
+        <h1 className="text-2xl font-bold text-white">Carrito de compras</h1>
         <Button
           variant="ghost"
           size="sm"
@@ -41,11 +41,12 @@ export default function CarritoPage() {
         </Button>
       </div>
 
-      <div className="bg-white rounded-lg border border-gray-200 p-4 shadow-sm">
+      <div className="bg-slate-800 rounded-lg border border-slate-700 p-4 shadow-sm">
         {items.map((item) => (
           <CartItemRow
             key={item.productId}
             productId={item.productId}
+            productName={item.productName}
             quantity={item.quantity}
             unitPrice={item.unitPrice}
           />

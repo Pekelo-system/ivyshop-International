@@ -29,11 +29,11 @@ export default async function BuscarPage({ searchParams }: BuscarPageProps) {
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">
+        <h1 className="text-2xl font-bold text-white">
           {q ? `Resultados para "${q}"` : "Buscar productos"}
         </h1>
         {products.length > 0 && (
-          <p className="mt-1 text-sm text-gray-500">{products.length} producto{products.length !== 1 ? "s" : ""} encontrado{products.length !== 1 ? "s" : ""}</p>
+          <p className="mt-1 text-sm text-slate-300">{products.length} producto{products.length !== 1 ? "s" : ""} encontrado{products.length !== 1 ? "s" : ""}</p>
         )}
       </div>
 

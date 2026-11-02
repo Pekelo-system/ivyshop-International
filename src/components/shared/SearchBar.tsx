@@ -33,7 +33,7 @@ export function SearchBar() {
       <Button
         type="submit"
         size="sm"
-        className="h-9 px-3 bg-green-600 hover:bg-green-700 text-white"
+        className="h-9 px-3 bg-violet-600 hover:bg-violet-700 text-white"
         aria-label="Buscar"
       >
         <Search className="h-4 w-4" aria-hidden="true" />

@@ -1,5 +1,8 @@
+"use client";
+
 import { type Product } from "@/types";
 import { ProductCard } from "./ProductCard";
+import { useCart } from "@/hooks/useCart";
 
 interface ProductGridProps {
   products: Product[];
@@ -7,6 +10,28 @@ interface ProductGridProps {
 }
 
 export function ProductGrid({ products, onAddToCart }: ProductGridProps) {
+  const addItem = useCart((s) => s.addItem);
+
+  function handleAddToCart(product: Product) {
+    if (onAddToCart) {
+      onAddToCart(product);
+      return;
+    }
+    const now = new Date().toISOString();
+    addItem({
+      PK: `CART#local`,
+      SK: `ITEM#PRODUCT#${product.id}`,
+      entityType: "CART_ITEM",
+      userId: "local",
+      productId: product.id,
+      productName: product.name,
+      quantity: 1,
+      unitPrice: product.price,
+      createdAt: now,
+      updatedAt: now,
+    });
+  }
+
   if (products.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-16 text-center">
@@ -40,7 +65,7 @@ export function ProductGrid({ products, onAddToCart }: ProductGridProps) {
         <ProductCard
           key={product.id}
           product={product}
-          onAddToCart={onAddToCart}
+          onAddToCart={handleAddToCart}
         />
       ))}
     </div>

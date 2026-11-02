@@ -11,17 +11,17 @@ export function CartSummary() {
   if (totalItems === 0) return null;
 
   return (
-    <div className="border-t border-gray-200 pt-4 mt-4 space-y-3">
-      <div className="flex justify-between text-base font-semibold text-gray-900">
+    <div className="border-t border-slate-700 pt-4 mt-4 space-y-3">
+      <div className="flex justify-between text-base font-semibold text-white">
         <span>Total ({totalItems} artículo{totalItems !== 1 ? "s" : ""})</span>
-        <span className="text-green-700">${total.toFixed(2)}</span>
+        <span className="text-violet-400">${total.toFixed(2)}</span>
       </div>
       <Link href="/checkout">
-        <Button className="w-full bg-orange-600 hover:bg-orange-700 text-white">
+        <Button className="w-full bg-cyan-500 hover:bg-cyan-600 text-white">
           Proceder al checkout
         </Button>
       </Link>
-      <Link href="/" className="block text-center text-sm text-green-700 hover:text-green-800 underline">
+      <Link href="/" className="block text-center text-sm text-violet-400 hover:text-violet-300 underline">
         Continuar comprando
       </Link>
     </div>

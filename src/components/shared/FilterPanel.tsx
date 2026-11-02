@@ -70,7 +70,7 @@ export function FilterPanel() {
     <aside className="w-full lg:w-64 space-y-6" aria-label="Filtros de búsqueda">
       {/* Categories */}
       <div>
-        <h3 className="text-sm font-semibold text-gray-900 mb-3">Categorías</h3>
+        <h3 className="text-sm font-semibold text-white mb-3">Categorías</h3>
         <div className="space-y-2">
           {CATEGORIES.map((cat) => (
             <label key={cat.value} className="flex items-center gap-2 cursor-pointer">
@@ -80,7 +80,7 @@ export function FilterPanel() {
                 onChange={() => toggleCategory(cat.value)}
                 className="rounded border-gray-300 text-green-600 focus:ring-green-500"
               />
-              <span className="text-sm text-gray-700">{cat.label}</span>
+              <span className="text-sm text-slate-300">{cat.label}</span>
             </label>
           ))}
         </div>
@@ -88,7 +88,7 @@ export function FilterPanel() {
 
       {/* Price range */}
       <div>
-        <h3 className="text-sm font-semibold text-gray-900 mb-3">Rango de precio</h3>
+        <h3 className="text-sm font-semibold text-white mb-3">Rango de precio</h3>
         <div className="flex items-center gap-2">
           <Input
             type="number"
@@ -117,7 +117,7 @@ export function FilterPanel() {
 
       {/* Actions */}
       <div className="flex flex-col gap-2">
-        <Button onClick={applyFilters} className="w-full bg-green-600 hover:bg-green-700 text-white" size="sm">
+        <Button onClick={applyFilters} className="w-full bg-violet-600 hover:bg-violet-700 text-white" size="sm">
           Aplicar filtros
         </Button>
         <Button onClick={clearFilters} variant="outline" size="sm" className="w-full">

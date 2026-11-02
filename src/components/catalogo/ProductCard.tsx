@@ -1,4 +1,5 @@
-import Image from "next/image";
+"use client";
+
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -22,22 +23,21 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
   const isOutOfStock = product.stock === 0;
 
   return (
-    <Card className="group flex flex-col overflow-hidden transition-shadow hover:shadow-md">
+    <Card className="group flex flex-col overflow-hidden transition-shadow hover:shadow-md rounded-b-xl rounded-t-none py-0 gap-0">
+      {/* Image */}
       {/* Image */}
       <Link
         href={`/productos/${product.id}`}
-        className="relative block aspect-square overflow-hidden bg-gray-100"
+        className="relative block aspect-[4/3] overflow-hidden"
       >
         {product.imageUrl ? (
-          <Image
+          <img
             src={product.imageUrl}
             alt={product.name}
-            fill
-            className="object-cover transition-transform group-hover:scale-105"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            className="absolute inset-0 w-full h-full object-cover transition-transform group-hover:scale-105"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center bg-gray-100">
+          <div className="flex h-full w-full items-center justify-center bg-slate-700">
             <svg
               className="h-16 w-16 text-gray-300"
               fill="none"
@@ -64,28 +64,28 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
       </Link>
 
       {/* Content */}
-      <CardContent className="flex flex-1 flex-col gap-1 p-4">
+      <CardContent className="flex flex-1 flex-col gap-1 p-3 pt-2">
         <Badge variant="secondary" className="w-fit text-xs">
           {categoryLabels[product.category] ?? product.category}
         </Badge>
         <Link href={`/productos/${product.id}`}>
-          <h3 className="mt-1 line-clamp-2 text-sm font-medium text-gray-900 transition-colors hover:text-green-700">
+          <h3 className="mt-1 line-clamp-2 text-sm font-medium text-gray-900 transition-colors hover:text-violet-600">
             {product.name}
           </h3>
         </Link>
-        <p className="mt-auto pt-2 text-lg font-bold text-green-700">
+        <p className="mt-auto pt-2 text-lg font-bold text-violet-600">
           ${product.price.toFixed(2)}
         </p>
       </CardContent>
 
       {/* Footer */}
-      <CardFooter className="p-4 pt-0">
+      <CardFooter className="p-3 pt-0">
         <Button
           className="w-full"
           disabled={isOutOfStock}
           onClick={() => onAddToCart?.(product)}
           style={
-            isOutOfStock ? {} : { backgroundColor: "#ea580c", color: "white" }
+            isOutOfStock ? {} : { backgroundColor: "#06b6d4", color: "white" }
           }
           aria-label={
             isOutOfStock
