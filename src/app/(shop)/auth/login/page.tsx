@@ -43,11 +43,25 @@ export default function LoginPage() {
         router.push(redirectTo);
         router.refresh();
       }
-    } catch {
-      // Mensaje genérico — nunca revelar si el error es en email o contraseña
-      setServerError(
-        "Credenciales inválidas. Verifica tu correo y contraseña."
-      );
+    } catch (err: unknown) {
+      const name = err instanceof Error ? err.name : "";
+      if (name === "UserNotConfirmedException") {
+        setServerError(
+          "Tu cuenta aún no está verificada. Revisa tu correo para confirmarla.",
+        );
+      } else if (
+        name === "LimitExceededException" ||
+        name === "TooManyRequestsException" ||
+        name === "TooManyFailedAttemptsException"
+      ) {
+        setServerError(
+          "Demasiados intentos. Espera unos minutos antes de volver a intentarlo.",
+        );
+      } else {
+        // Mensaje genérico para credenciales inválidas (NotAuthorizedException,
+        // UserNotFoundException): no revela qué campo falló (evita enumeración de usuarios).
+        setServerError("Correo o contraseña incorrectos.");
+      }
     }
   }
 
