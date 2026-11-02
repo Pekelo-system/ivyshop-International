@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { checkSeedFlag, runSeed } from "@/lib/seed/seeder";
+import { runSeed } from "@/lib/seed/seeder";
 import { SEED_PRODUCTS } from "@/lib/seed/data";
 
 vi.mock("@/lib/dynamo/helpers", () => ({
