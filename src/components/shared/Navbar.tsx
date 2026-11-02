@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ShoppingCart, LogOut, LogIn } from "lucide-react";
@@ -14,8 +15,20 @@ interface NavbarProps {
 
 export function Navbar({ isAuthenticated = false }: NavbarProps) {
   const router = useRouter();
-  const totalItems = useCart((state) => state.getTotalItems());
-  const total = useCart((state) => state.getTotal());
+  const cartTotalItems = useCart((state) => state.getTotalItems());
+  const cartTotal = useCart((state) => state.getTotal());
+
+  // The cart lives in client-only state (Zustand persisted to localStorage).
+  // On the server the cart is always empty, so we defer reading the hydrated
+  // value until after mount to keep the first client render identical to the
+  // server render and avoid a hydration mismatch.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const totalItems = mounted ? cartTotalItems : 0;
+  const total = mounted ? cartTotal : 0;
 
   async function handleSignOut() {
     try {
